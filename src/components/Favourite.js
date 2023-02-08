@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { PakagesStore } from "../App";
 import { getFavList } from "../utils/commonFunction";
 import Display from "./Display";
@@ -20,15 +21,25 @@ function Favourite() {
             className="p-2 m-2 card"
             style={{ backgroundColor: "black", color: "white" }}
           >
-            Favourite List Of NPM Pakeges
+            Welcome! to Favourite NPM Pakeges
           </h5>
-          <button href="/" className="btn btn-light " onClick={handleClear}>
-            Clear localStorage
-          </button>
+          <a href="/" className="btn btn-light m-2" onClick={handleClear}>
+            Clear List
+          </a>
         </div>
 
         {/* function is passing the favourite list array only */}
-        <Display displayData={getFavList(store)} />
+        {getFavList(store)[0] ? (
+          <Display displayData={getFavList(store)} />
+        ) : (
+          <div className="card m-5 p-5">
+            <h4>You Don't have any Favourite Yet... Please Add</h4>
+            <span className="emoji">🥹</span>
+            <Link className="btn btn-dark m-5" to="/">
+              Add Favs
+            </Link>
+          </div>
+        )}
       </div>
     </>
   );
