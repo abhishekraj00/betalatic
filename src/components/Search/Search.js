@@ -2,10 +2,10 @@ import React, { useContext, useState } from "react";
 import { PakagesStore } from "../../App";
 import { SEARCH } from "../../icon";
 import Display from "../Display";
+import Navbar from "../Navbar/Navbar";
 import "./search.css";
 
 function Search() {
-  
   //universal Store
   const pakeges = useContext(PakagesStore);
   const { store } = pakeges;
@@ -29,6 +29,7 @@ function Search() {
 
   return (
     <>
+      <Navbar />
       {/* Search Bar  */}
       <div className="search-bar">
         <div className="input-group mb-3">
@@ -52,15 +53,9 @@ function Search() {
       </div>
 
       {/* Search Data Display hear  */}
-      <div className="card p-2 m-2 text-center">
-        <h4
-          className="p-2 m-2 card"
-          style={{ backgroundColor: "black", color: "white" }}
-        >
-          Search Result of NPM Pakeges
-        </h4>
+      <div className="card m-4">
         {/* Display Components passing search result to the components */}
-        <Display displayData={serachData} />
+        {serachData[0] ? <Display displayData={serachData} /> : ""}
       </div>
     </>
   );

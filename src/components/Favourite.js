@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { PakagesStore } from "../App";
 import { getFavList } from "../utils/commonFunction";
 import Display from "./Display";
+import Navbar from "./Navbar/Navbar";
 
 function Favourite() {
   //univarsal store data
@@ -10,6 +11,7 @@ function Favourite() {
   return (
     <>
       <>
+        <Navbar />
         <div className="card p-2 m-2 text-center">
           <h5
             className="p-2 m-2 card"

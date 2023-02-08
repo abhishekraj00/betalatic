@@ -1,0 +1,10 @@
+.navbar {
+  max-width: 80%;
+  min-width: 200px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 5rem;
+}

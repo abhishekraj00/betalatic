@@ -18,7 +18,7 @@ function Display({ displayData }) {
     setStore([...arrdata]);
   };
   return (
-    <div className="card_container">
+    <div className="card_container m-4 p-4">
       {displayData.map((item) => {
         return (
           <div key={item.id} className="card p-4">

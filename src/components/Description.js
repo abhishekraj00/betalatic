@@ -43,7 +43,7 @@ function Description({ idx, favorite, description }) {
                 className="btn btn-dark"
                 onClick={() => setToggle(!toggle)}
               >
-                {toggle ? "Done" : "Edit"}
+                {toggle ? "Done" : "Edit✏️"}
               </button>
             </div>
           </>
