@@ -1,6 +1,15 @@
 .search-bar {
-  width: 500px;
+  max-width: 60%;
+  min-width: 200px;
+  width: 40%;
   margin-top: 2rem;
+}
+
+.form-control {
+  border: none;
+}
+.form-control:focus{
+  box-shadow: none;
 }
 
 .card_container {
@@ -18,4 +27,6 @@
 
 .icon {
   width: 50px;
+  background-color: white;
+  border: none;
 }
