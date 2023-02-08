@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { createContext, useEffect, useState } from "react";
+import Favourite from "./components/Favourite";
+import Search from "./components/Search/Search";
+import { getDataFromLocal } from "./utils/commonFunction";
 
-function App() {
+export const PakagesStore = createContext();
+
+export default function App() {
+  //universal Store
+  const [store, setStore] = useState(getDataFromLocal());
+
+  useEffect(() => {
+    let data = JSON.stringify(store);
+    localStorage.setItem("store", data);
+  }, [store]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PakagesStore.Provider value={{ store: store, setStore: setStore }}>
+        <Search />
+        <Favourite />
+      </PakagesStore.Provider>
     </div>
   );
 }
-
-export default App;
